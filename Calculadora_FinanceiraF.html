@@ -29,8 +29,19 @@
             border-radius: 20px;
         }
 
+        .cabecalho{
+            display: flex;
+            align-items: center;
+
+        }
+
+        img{
+            width: 100px;
+            height: 100px;
+        }
+
         h1{
-            margin: 0 0 30px 0;
+            margin-left: 30px;
             text-align: center;
         }
 
@@ -67,7 +78,7 @@
 
 <body>
     <div class="container">
-    <h1>Simulador Financeiro</h1>
+    <div class="cabecalho"><img src="./Ferrugem-cor.png" alt=""><h1>Simulador Financeiro</h1></div>
     Faturamento por hectare: <input type="text" id="input_faturamento"><br>
     Numeros de hectare: <input type="text" id="input_num"><br>
     Perda por hectare: <input type="text" id="input_perda"><br>
@@ -86,23 +97,22 @@
     function calcular() {
         var Faturamento = Number(input_faturamento.value);
         var NumHec = Number(input_num.value);
-
-
-
-        
         var PerdaHec = Number(input_perda.value);
-        var total = Number(Faturamento * NumHec);
-        var total2 = total + (total * 0.10);
+        
+
         var perda = (PerdaHec * Faturamento) / 100;
-        var perdaAT = PerdaHec - 10
-        var perda10 = (perdaAT * Faturamento) / 100;
+        var perda10 = perda - (perda * 0.10);
+        var total = Faturamento * NumHec;
+        var total2 = total + (total * 0.10);
 
         if (NumHec < 100) {
             div_mensagem.innerHTML = '';
             alert("O numero minimo de Hectares é 100")
         }
         else {
-            div_mensagem.innerHTML = `Sem o monitoramento que nossa empresa oferece, sua fazenda perde R$<span class="perda">${perda}</span> reais por colheita. Já com o nosso monitoramento, você perderia, por colheita, R$<span class="ganho">${perda10}</span>. <br>Com o nosso monitoramento, seus lucros totais podem ir de R$<span class="perda">${total}</span> reais para R$<span class="ganho">${total2}</span> reais.`
+            div_mensagem.innerHTML = `Sem o monitoramento que nossa empresa oferece, sua fazenda perde R$<span class="perda">${perda}</span> reais por colheita. 
+                                    Já com o nosso monitoramento, você perderia, por colheita, R$<span class="ganho">${perda10}</span>. 
+                                    <br>Com o nosso monitoramento, seus lucros totais podem ir de R$<span class="perda">${total}</span> reais para R$<span class="ganho">${total2}</span> reais.`
         }
 
 
