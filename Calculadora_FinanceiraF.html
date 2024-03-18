@@ -1,12 +1,12 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-br">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>FERAZIAN - Simulador Financeiro</title>
     <style>
-
+        
         body{
             font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
             height: 100vh;
@@ -79,9 +79,9 @@
 <body>
     <div class="container">
     <div class="cabecalho"><img src="./Ferrugem-cor.png" alt=""><h1>Simulador Financeiro</h1></div>
-    Faturamento por hectare: <input type="text" id="input_faturamento"><br>
+    Faturamento por hectare (R$): <input type="text" id="input_faturamento"><br>
     Numeros de hectare: <input type="text" id="input_num"><br>
-    Perda por hectare: <input type="text" id="input_perda"><br>
+    Perda por hectare (%): <input type="text" id="input_perda"><br>
 
     <div class="btnVerificar">
         <button onclick="calcular()">Verificar</button><br>
@@ -110,9 +110,9 @@
             alert("O numero minimo de Hectares é 100")
         }
         else {
-            div_mensagem.innerHTML = `Sem o monitoramento que nossa empresa oferece, sua fazenda perde R$<span class="perda">${perda}</span> reais por colheita. 
-                                    Já com o nosso monitoramento, você recupera, por colheita, R$<span class="ganho">${perda10}</span>. 
-                                    <br>Com o nosso monitoramento, seus lucros totais podem ir de R$<span class="perda">${total}</span> reais para R$<span class="ganho">${total2}</span> reais.`
+            div_mensagem.innerHTML = `Nosso monitoramento garante 10% de retorno financeiro.<br>
+                                    Antes você perderia R$<span class="perda">${perda}</span> reais, com nosso serviço, você perde R$<span class="ganho">${perda10}</span> reais.<br>
+                                    Com o nosso monitoramento, seus lucros podem ir de R$<span class="perda">${total}</span> reais para R$<span class="ganho">${total2}</span> reais.`
         }
 
 
