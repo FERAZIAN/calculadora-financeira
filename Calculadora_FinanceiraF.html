@@ -99,23 +99,31 @@
         var NumHec = Number(input_num.value);
         var PerdaHec = Number(input_perda.value);
         
-
         var perda = (PerdaHec * Faturamento) / 100;
         var perda10 = perda - (perda * 0.10);
         var total = Faturamento * NumHec;
-        var total2 = total + (total * 0.10);
+        var total2 = total - (total * (PerdaHec / 100));
+        var preju = total * (PerdaHec / 100);
+        var retorno = preju * 0.1;
+        var final = total - preju + retorno
 
         if (NumHec < 100) {
             div_mensagem.innerHTML = '';
             alert("O numero minimo de Hectares é 100")
         }
         else {
-            div_mensagem.innerHTML = `Nosso monitoramento garante 10% de retorno financeiro.<br>
-                                    Antes você perderia R$<span class="perda">${perda}</span> reais, com nosso serviço, você perde R$<span class="ganho">${perda10}</span> reais.<br>
-                                    Com o nosso monitoramento, seus lucros podem ir de R$<span class="perda">${total}</span> reais para R$<span class="ganho">${total2}</span> reais.`
-        }
+            div_mensagem.innerHTML = `
 
+            Nosso monitoramento garante 10% de retorno financeiro em cima do valor perdido.<br><br>
+
+            Antes você perderia R$<span class="perda">${perda}</span> reais, com nosso serviço
+            você perde R$<span class="ganho">${perda10}</span> reais por colheita.<br><br>
+
+
+            Com o nosso monitoramento, seus lucros podem ir de R$<span class="perda">${total2}</span> 
+            reais para R$<span class="ganho">${final}</span> reais.`
+        }
 
     }
 
-</script>
+</script> 
