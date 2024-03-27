@@ -104,7 +104,7 @@
         var total = Faturamento * NumHec;
         var total2 = total - (total * (PerdaHec / 100));
         var preju = total * (PerdaHec / 100);
-        var retorno = preju * 0.1;
+        var retorno = total2 * 0.1;
         var final = total - preju + retorno
 
         if (NumHec < 100) {
